@@ -1,1 +1,8 @@
-
+# Model training 
+mod = sm.tsa.statespace.SARIMAX(y,
+                                order=(0, 1, 1),
+                                seasonal_order=(0, 1, 1, 12),
+                                enforce_stationarity=False,
+                                enforce_invertibility=False)
+results = mod.fit(disp=False)
+print(results.summary().tables[1])
