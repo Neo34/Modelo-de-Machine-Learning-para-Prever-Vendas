@@ -1,1 +1,10 @@
+IS_CUSTOM_DATA = False  # If TRUE, the dataset has to be uploaded manually
 
+IS_SAMPLE = False  # If TRUE, use only rows of data for training; otherwise, use all data
+SAMPLE_ROWS = 5000  # If IS_SAMPLE is True, use only this number of rows for training
+
+DATA_ROOT = "/lakehouse/default"
+DATA_FOLDER = "Files/salesforecast"  # Folder with data files
+DATA_FILE = "Superstore.xlsx"  # Data file name
+
+EXPERIMENT_NAME = "aisample-superstore-forecast"  # MLflow experiment name
