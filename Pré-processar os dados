@@ -1,1 +1,8 @@
-
+# Data preprocessing
+cols = ['Row ID', 'Order ID', 'Ship Date', 'Ship Mode', 'Customer ID', 'Customer Name', 
+'Segment', 'Country', 'City', 'State', 'Postal Code', 'Region', 'Product ID', 'Category', 
+'Sub-Category', 'Product Name', 'Quantity', 'Discount', 'Profit']
+# Drop unnecessary columns
+furniture.drop(cols, axis=1, inplace=True)
+furniture = furniture.sort_values('Order Date')
+furniture.isnull().sum()
