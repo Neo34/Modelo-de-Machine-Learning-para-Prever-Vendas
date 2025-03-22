@@ -1,1 +1,25 @@
 
+# Decompose the time series into its components by using statsmodels
+result = sm.tsa.seasonal_decompose(y, model='additive')
+
+# Labels and corresponding data for plotting
+components = [('Seasonality', result.seasonal),
+              ('Trend', result.trend),
+              ('Residual', result.resid),
+              ('Observed Data', y)]
+
+# Create subplots in a grid
+fig, axes = plt.subplots(nrows=4, ncols=1, figsize=(12, 7))
+plt.subplots_adjust(hspace=0.8)  # Adjust vertical space
+axes = axes.ravel()
+
+# Plot the components
+for ax, (label, data) in zip(axes, components):
+    ax.plot(data, label=label, color='blue' if label != 'Observed Data' else 'purple')
+    ax.set_xlabel('Time')
+    ax.set_ylabel(label)
+    ax.set_xlabel('Time', fontsize=10)
+    ax.set_ylabel(label, fontsize=10)
+    ax.legend(fontsize=10)
+
+plt.show()
